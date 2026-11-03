@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #faf8f2;
+  --foreground: #0f1a3d;
+}
+
+.dark {
+  --background: #0a1030;
+  --foreground: #f8fafc;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Smooth scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+/* ---------- Royal theme ---------- */
+h1, h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.01em;
+}
+
+/* Gold-tinted cards & scrollbar */
+.dark ::-webkit-scrollbar-thumb { background: #d4af37; }
+::-webkit-scrollbar-thumb { background: #d4af37aa; }
+
+/* ---------- Flying books / pens background ---------- */
+.fly-layer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+}
+.fly-item {
+  position: absolute;
+  bottom: -80px;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation-name: flyUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  filter: drop-shadow(0 2px 4px rgba(12, 21, 53, 0.18));
+}
+.fly-gold { color: #b8891a; }
+.fly-blue { color: #2c47b0; }
+.dark .fly-gold { color: #f5c542; }
+.dark .fly-blue { color: #8fadf5; }
+
+@keyframes flyUp {
+  0%   { transform: translate3d(0, 0, 0) rotate(var(--r0)); opacity: 0; }
+  10%  { opacity: var(--o); }
+  50%  { transform: translate3d(var(--sway), -55vh, 0) rotate(calc((var(--r0) + var(--r1)) / 2)); }
+  90%  { opacity: var(--o); }
+  100% { transform: translate3d(calc(var(--sway) * -1), -125vh, 0) rotate(var(--r1)); opacity: 0; }
+}
+
+
+/* Crest glow for logo */
+.crest-glow { filter: drop-shadow(0 0 6px rgba(245, 197, 66, 0.45)); }
+
+/* Background Moving Floating Keyframe Animations */
+@keyframes bgFloat1 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(12px, -24px) rotate(6deg) scale(1.05);
+  }
+}
+
+@keyframes bgFloat2 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-16px, -30px) rotate(-8deg) scale(0.95);
+  }
+}
+
+@keyframes bgFloat3 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(20px, -18px) rotate(5deg) scale(1.08);
+  }
+}
+
+@keyframes bgFloat4 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-22px, 20px) rotate(-6deg) scale(1.04);
+  }
+}
+
+@keyframes bgFloat5 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(15px, 25px) rotate(7deg) scale(0.96);
+  }
+}
+
+@keyframes bgFloat6 {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-18px, -22px) rotate(-5deg) scale(1.06);
+  }
+}
+
+@keyframes bgGlowPulse {
+  0%, 100% {
+    opacity: 0.25;
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+  }
+  50% {
+    opacity: 0.45;
+    filter: drop-shadow(0 0 22px rgba(245, 158, 11, 0.5));
+  }
+}
+
+.animate-bg-float-1 {
+  animation: bgFloat1 8s ease-in-out infinite;
+}
+
+.animate-bg-float-2 {
+  animation: bgFloat2 11s ease-in-out infinite;
+}
+
+.animate-bg-float-3 {
+  animation: bgFloat3 9.5s ease-in-out infinite;
+}
+
+.animate-bg-float-4 {
+  animation: bgFloat4 13s ease-in-out infinite;
+}
+
+.animate-bg-float-5 {
+  animation: bgFloat5 10.5s ease-in-out infinite;
+}
+
+.animate-bg-float-6 {
+  animation: bgFloat6 12s ease-in-out infinite;
+}
+
+.animate-bg-glow {
+  animation: bgGlowPulse 4s ease-in-out infinite;
+}
+
